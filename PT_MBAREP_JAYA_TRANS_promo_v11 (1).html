@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PT MBAREP JAYA TRANS - Promo v11 (Offline-ready SVG + WebAudio)</title>
+<style>
+  :root{--brand:#0b6fb0;--accent:#ff7a59;--muted:#6b7280;--bg:#071422;}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,#071422,#05202a);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;color:#fff;overflow:hidden}
+  .stage{position:relative;width:1920px;height:1080px;margin:0 auto;background:#000;overflow:hidden}
+  /* simple layered SVG backgrounds */
+  .layer{position:absolute;inset:0;z-index:10;pointer-events:none}
+  .city, .village{width:100%;height:100%}
+  /* title */
+  .title{position:absolute;left:120px;top:80px;z-index:60}
+  .title h1{font-size:64px;margin:0;letter-spacing:2px}
+  .title p{margin-top:8px;color:var(--muted);font-weight:700}
+  /* road */
+  .road{position:absolute;left:0;right:0;bottom:0;height:320px;z-index:80;background:linear-gradient(180deg,#0b0b0b,#161616)}
+  .lane{position:absolute;left:0;right:0;bottom:50%;height:12px;background:linear-gradient(90deg,transparent 0 48%, #ffd 48% 52%, transparent 52% 100%);opacity:0.28}
+  /* car SVG container */
+  .car{position:absolute;bottom:200px;left:-820px;width:760px;z-index:100;transition:left 1s linear, transform 1s ease}
+  .smallcar{position:absolute;bottom:260px;left:-420px;width:420px;z-index:95;opacity:0.95}
+  /* overlay card */
+  .card{position:absolute;right:120px;bottom:140px;width:520px;background:#fff;color:#072b3a;padding:18px;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,0.6);opacity:0;transform:translateY(20px);transition:all .6s}
+  .card.show{opacity:1;transform:translateY(0)}
+  .card h3{margin:0;font-size:18px}
+  .card p{margin:8px 0 0;color:var(--muted);font-weight:700}
+  /* fleet row */
+  .fleet{position:absolute;left:120px;bottom:120px;display:flex;gap:12px;z-index:110;opacity:0;transform:translateY(36px);transition:all .6s}
+  .fleet.show{opacity:1;transform:translateY(0)}
+  .fleet .item{background:#fff;color:#072b3a;padding:8px;border-radius:10px;display:flex;gap:10px;align-items:center;box-shadow:0 18px 40px rgba(0,0,0,0.5);width:340px}
+  .fleet svg{width:120px;height:72px;border-radius:8px}
+  .fleet .meta{font-weight:900}
+  /* schedule */
+  .schedule{position:absolute;left:120px;top:220px;background:rgba(255,255,255,0.95);color:#072b3a;padding:12px 14px;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,0.5);opacity:0;transform:translateY(20px);transition:all .6s}
+  .schedule.show{opacity:1;transform:translateY(0)}
+  /* contact modal */
+  .contact{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:#072b3a;padding:24px;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,0.6);width:980px;text-align:center;opacity:0;transition:all .6s}
+  .contact.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  .cta{display:inline-block;margin-top:12px;padding:12px 20px;background:linear-gradient(90deg,var(--brand),#036c9e);color:#fff;border-radius:10px;font-weight:900;cursor:pointer;border:none}
+  /* footer */
+  .footer{position:absolute;left:24px;bottom:22px;color:rgba(255,255,255,0.82);z-index:130;font-weight:800}
+  /* responsiveness not needed (desktop render target) */
+</style>
+</head>
+<body>
+<div class="stage" id="stage" role="main" aria-label="Promo PT MBAREP JAYA TRANS v11">
+
+  <!-- Layer: city (SVG generated) -->
+  <div class="layer" id="layerCity" style="opacity:1;z-index:5;pointer-events:none">
+    <svg class="city" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#0f2740"/><stop offset="1" stop-color="#07334a"/>
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#sky)"/>
+      <!-- simplified skyline silhouettes -->
+      <g transform="translate(0,260)" fill="#041824" stroke="none">
+        <rect x="40" y="220" width="160" height="400" rx="6" fill="#08273b"/>
+        <rect x="220" y="160" width="180" height="460" rx="6" fill="#093048"/>
+        <rect x="420" y="120" width="220" height="500" rx="6" fill="#0b3950"/>
+        <rect x="660" y="80" width="260" height="540" rx="6" fill="#0c4560"/>
+        <rect x="960" y="160" width="200" height="460" rx="6" fill="#0b3950"/>
+        <rect x="1180" y="200" width="140" height="420" rx="6" fill="#08273b"/>
+        <rect x="1360" y="140" width="260" height="480" rx="6" fill="#093048"/>
+        <rect x="1640" y="220" width="160" height="400" rx="6" fill="#08273b"/>
+      </g>
+      <!-- lights -->
+      <g transform="translate(0,360)" fill="#0f8bd1" opacity="0.06">
+        <circle cx="120" cy="20" r="6"/><circle cx="300" cy="0" r="6"/><circle cx="540" cy="6" r="6"/>
+        <circle cx="760" cy="2" r="6"/><circle cx="980" cy="-4" r="6"/><circle cx="1240" cy="4" r="6"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Layer: village (hidden initially) -->
+  <div class="layer" id="layerVillage" style="opacity:0;z-index:4;pointer-events:none">
+    <svg class="village" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#06303b"/><stop offset="1" stop-color="#03403c"/></linearGradient></defs>
+      <rect width="100%" height="100%" fill="url(#g2)"/>
+      <!-- hills -->
+      <g transform="translate(0,360)">
+        <ellipse cx="200" cy="280" rx="320" ry="120" fill="#022828"/>
+        <ellipse cx="760" cy="260" rx="420" ry="140" fill="#023232"/>
+        <ellipse cx="1320" cy="300" rx="380" ry="120" fill="#023232"/>
+      </g>
+      <!-- trees -->
+      <g transform="translate(80,420)" fill="#032b27">
+        <rect x="120" y="140" width="20" height="60" fill="#032b27"/>
+        <circle cx="130" cy="120" r="40" fill="#084b36"/>
+        <rect x="620" y="140" width="20" height="60" fill="#032b27"/>
+        <circle cx="630" cy="120" r="40" fill="#084b36"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- title -->
+  <div class="title" id="title">
+    <h1>PT MBAREP JAYA TRANS</h1>
+    <p>Pemesanan Travel Antar Jemput Tujuan Banjarnegara - Jakarta</p>
+  </div>
+
+  <!-- road -->
+  <div class="road" id="road"><div class="lane"></div></div>
+
+  <!-- cars (SVG inline) -->
+  <div class="car" id="carMain" aria-hidden>
+    <!-- simple van SVG styled like hiace (generic) -->
+    <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" width="760" height="304">
+      <rect x="6" y="24" rx="12" ry="12" width="260" height="70" fill="#ffffff"/>
+      <rect x="20" y="34" width="200" height="44" rx="6" fill="#1b6fb0"/>
+      <circle cx="56" cy="104" r="12" fill="#222"/>
+      <circle cx="196" cy="104" r="12" fill="#222"/>
+      <rect x="216" y="38" width="28" height="34" rx="4" fill="#cfe8ff"/>
+    </svg>
+  </div>
+
+  <div class="smallcar" id="carA" aria-hidden>
+    <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" width="420" height="189">
+      <rect x="6" y="20" rx="8" width="160" height="46" fill="#fff"/>
+      <rect x="24" y="30" width="100" height="26" rx="4" fill="#0b6fb0"/>
+      <circle cx="44" cy="74" r="8" fill="#222"/><circle cx="124" cy="74" r="8" fill="#222"/>
+    </svg>
+  </div>
+
+  <div class="smallcar" id="carB" aria-hidden style="transform:scaleX(-1)">
+    <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" width="380" height="171">
+      <rect x="6" y="20" rx="8" width="160" height="46" fill="#fff"/>
+      <rect x="24" y="30" width="100" height="26" rx="4" fill="#0b6fb0"/>
+      <circle cx="44" cy="74" r="8" fill="#222"/><circle cx="124" cy="74" r="8" fill="#222"/>
+    </svg>
+  </div>
+
+  <!-- overlay card -->
+  <div class="card" id="card">
+    <h3>Jadwal & Rute</h3>
+    <p>Banjarnegara → Wonosobo → Purwokerto → Jakarta</p>
+    <p style="margin-top:8px;font-weight:800;color:var(--muted)">Jadwal: Pagi 05:00 • Siang 13:00 • Sore 16:00 • Malam 20:00 • Dini Hari Fleksibel</p>
+  </div>
+
+  <!-- fleet -->
+  <div class="fleet" id="fleet">
+    <div class="item"><svg viewBox="0 0 200 120"><rect width="200" height="120" rx="8" fill="#cfe8ff"/></svg><div style="padding-left:8px"><div class="meta">Toyota HiAce</div><div style="color:var(--muted);font-weight:700">16 seat</div></div></div>
+    <div class="item"><svg viewBox="0 0 200 120"><rect width="200" height="120" rx="8" fill="#cfe8ff"/></svg><div style="padding-left:8px"><div class="meta">Isuzu ELF</div><div style="color:var(--muted);font-weight:700">19 seat</div></div></div>
+    <div class="item"><svg viewBox="0 0 200 120"><rect width="200" height="120" rx="8" fill="#cfe8ff"/></svg><div style="padding-left:8px"><div class="meta">All New Avanza</div><div style="color:var(--muted);font-weight:700">7 seat</div></div></div>
+  </div>
+
+  <!-- schedule -->
+  <div class="schedule" id="schedule">
+    <h4>Jadwal Keberangkatan</h4>
+    <p>Pagi: 05:00 • Siang: 13:00 • Sore: 16:00 • Malam: 20:00 • Dini Hari: Fleksibel</p>
+  </div>
+
+  <!-- contact modal -->
+  <div class="contact" id="contact">
+    <h2>Hubungi PT MBAREP JAYA TRANS</h2>
+    <p style="font-weight:900">WA: 083182722749 • 085725940293</p>
+    <p style="font-weight:900">Email: ptmbarepjayatrans@gmail.com</p>
+    <p style="margin-top:8px;color:var(--muted)">Alamat: Kalibangkang RT 004 RW 001, Desa Berta, Susukan, Banjarnegara 53475</p>
+    <div><button class="cta" id="cta">Pesan Sekarang via WhatsApp</button></div>
+  </div>
+
+  <div class="footer">ptmbarepjayatrans.my.id • © PT MBAREP JAYA TRANS 2025</div>
+</div>
+
+<!-- WebAudio-generated music: upbeat cinematic loop (no external mp3) -->
+<script>
+// Simple WebAudio loop (cinematic, generated) and sequencing
+let audioCtx, master;
+function startMusic(){
+  if(audioCtx) return;
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  master = audioCtx.createGain(); master.gain.value = 0.12; master.connect(audioCtx.destination);
+
+  const bpm = 100; const beat = 60 / bpm;
+  const chords = [[52,55,59],[48,52,55],[50,53,57]];
+  let step = 0;
+  function playPad(chord, when, dur){
+    chord.forEach(n=>{
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type='sine'; o.frequency.value = 440*Math.pow(2,(n-69)/12);
+      o.connect(g); g.connect(master);
+      g.gain.value = 0.0006;
+      o.start(when);
+      g.gain.linearRampToValueAtTime(0.035, when+0.2);
+      g.gain.exponentialRampToValueAtTime(0.0001, when+dur-0.03);
+      o.stop(when+dur);
+    });
+  }
+  function playPerc(when){
+    const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
+    o.type='square'; o.frequency.setValueAtTime(180, when); o.frequency.exponentialRampToValueAtTime(50, when+0.35);
+    o.connect(g); g.connect(master);
+    g.gain.setValueAtTime(0.0001, when); g.gain.exponentialRampToValueAtTime(0.12, when+0.02); g.gain.exponentialRampToValueAtTime(0.0001, when+0.4);
+    o.start(when); o.stop(when+0.45);
+  }
+
+  const startT = audioCtx.currentTime + 0.05; let next = startT;
+  function schedule(){
+    while(next < audioCtx.currentTime + 0.9){
+      const chord = chords[step % chords.length];
+      playPad(chord, next, 4*beat*2);
+      playPerc(next);
+      next += beat*2;
+      step++;
+    }
+    requestAnimationFrame(schedule);
+  }
+  schedule();
+}
+
+// Sequencer for animation
+const seq = [
+  {t:0, fn: showTitle},
+  {t:2500, fn: driveCity},
+  {t:9000, fn: showCard},
+  {t:14000, fn: showFleet},
+  {t:22000, fn: showSchedule},
+  {t:30000, fn: showContact},
+  {t:42000, fn: swapToVillage},
+  {t:52000, fn: driveVillage},
+  {t:68000, fn: showContactEnd},
+  {t:80000, fn: endAll}
+];
+
+function showTitle(){ document.getElementById('title').style.opacity=1; }
+function driveCity(){
+  startMusic();
+  const car = document.getElementById('carMain');
+  car.style.left = '60%';
+  const a = document.getElementById('carA'); a.style.left = '110%';
+  const b = document.getElementById('carB'); b.style.left = '-460px';
+}
+function showCard(){ document.getElementById('card').classList.add('show'); }
+function showFleet(){ document.getElementById('fleet').classList.add('show'); }
+function showSchedule(){ document.getElementById('schedule').classList.add('show'); }
+function showContact(){ document.getElementById('contact').classList.add('show'); }
+function swapToVillage(){
+  document.getElementById('layerCity').style.opacity = 0;
+  document.getElementById('layerVillage').style.opacity = 1;
+  // reset car for village drive
+  const car = document.getElementById('carMain');
+  car.style.left = '-820px';
+  car.style.bottom = '160px';
+}
+function driveVillage(){
+  const car = document.getElementById('carMain');
+  car.style.left = '56%';
+  // small cars go opposite
+  const a = document.getElementById('carA'); a.style.left = '140%';
+  const b = document.getElementById('carB'); b.style.left = '-420px';
+}
+function showContactEnd(){ document.getElementById('contact').classList.add('show'); }
+function endAll(){ /* final zoom subtle */ document.getElementById('layerFront')?.style.setProperty('transform','scale(1.02)'); }
+
+// Orchestrate timeline automatically once user interacts (click or space)
+let started=false;
+function startSequence(){
+  if(started) return; started=true;
+  const t0 = performance.now();
+  seq.forEach(evt=> setTimeout(evt.fn, evt.t));
+}
+// start on click / space
+document.addEventListener('click', startSequence, {once:true});
+document.addEventListener('keydown', e=>{ if(e.code==='Space'){ startSequence(); } });
+
+// CTA
+document.getElementById('cta').addEventListener('click', ()=>{ window.open('https://wa.me/6283182722749','_blank'); });
+
+</script>
+</body>
+</html>
